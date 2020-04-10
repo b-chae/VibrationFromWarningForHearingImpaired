@@ -1,2 +1,51 @@
-# VibrationFromWarningForHearingImpaired
-Notification system with vibration in emergency for hearing impaired 
+# 안전한 수면을 가능케하는, 농인을 위한 위험 알림 진동 서비스
+
+안녕하세요, 저희는 조리김 팀입니다.
+청력 문제로 인해 농인들이 항상 위험에 처해있다는 생각을 해보셨나요?
+저희는 그런 위기 상황에서 
+  
+# 프로젝트 추진 배경
+  
+  *농인이란 듣는 것보다 보는 것에 더 집중하는 존재로 정체성을 받아들이는 문화적 개념의 용어입니다.
+  
+  농인 A씨는 육아 하는 데 어려움이 많습니다.
+  오늘도 어린 아기가 우는 지 확인하기 위해서 뜬 눈으로 밤을 지새웠습니다.
+  그것이 유일한 아기의 반응을 확인하는 방법이었기 때문입니다.
+  
+  농인 B씨는 지난 2018년에 일어난 포항 지진에서 알림 소리를 듣지 못해 재난 대피에서 소외되었습니다.
+  TV에서 방송을 하는 데, 수화 통역도 제공되지 않았고 대피 과정에서 농인들에 대한 배려가 전혀 없었기 때문입니다.
+  그 후부터 창밖을 자주 확인하는 트라우마가 생겼습니다.
+  (참고 영상 : https://youtu.be/KOu6i0Fmc9Q)
+  
+# 어떻게 푸는가?
+  
+  저희 팀에서는 농인들의 안전한 수면을 위한 장치를 구현할 예정입니다.
+  크게 두 가지 상황에서 착안하여 아기 울음소리, 위험 상황 속 사이렌 소리가 들리면 침대에 부착된 진동 모듈을 상황하여 일어나야 하는 상황임을 알려줍니다.
+  
+# 예상 시스템 구성도
+  
+  대략 7~8개의 빌딩블록으로,  그리고 빌딩블록중에는 클라이언트 사이드가 있고, 서버사이드가 있겠고,
+  클라이언트 사이드이네느 뭔지 센서가 있겠고, 인터넷 그리모 들어가겠고,  서버사이드에는 database도 있겠고,
+  AI 분석 부분도 있겠고, 분석결과를 소비자에게 전달,연결하는 앱이든 액튜에이터든 그런게 있을 것 같습니다.
+  
+  각 블록다이어그램에 구체적 명칭을 씁니다.  명칭의 예는, esp32보드,  aws ubuntu, node.js/express, GPS센서, 자이로/가속기센서, ... 등등
+  대략 이런 정도 느낌을 주면 됩니다. [->링크보기](https://www.google.com/search?q=%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8+%EC%84%9C%EB%B2%84+%EC%8B%9C%EC%8A%A4%ED%85%9C+%EA%B5%AC%EC%84%B1%EB%8F%84+%EA%B7%B8%EB%A6%AC%EA%B8%B0&tbm=isch&ved=2ahUKEwjM64WJptjoAhVWyosBHeFSC3QQ2-cCegQIABAA&oq=%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8+%EC%84%9C%EB%B2%84+%EC%8B%9C%EC%8A%A4%ED%85%9C+%EA%B5%AC%EC%84%B1%EB%8F%84+%EA%B7%B8%EB%A6%AC%EA%B8%B0&gs_lcp=CgNpbWcQA1CgpAFY1tIBYJDUAWgIcAB4BoABcogBuB6SAQUxMC4yOJgBAKABAaoBC2d3cy13aXotaW1n&sclient=img&ei=_HuNXsz9HdaUr7wP4aWtoAc&bih=1098&biw=1214#imgrc=g0kmuPL1x7CRtM)
+ 
+  
+# 기대성과
+  
+  사회적 취약자에 해당하는 농인들의 일상 속 불편함을 해소함으로써 약자불평등 문제 해결에 기여한다.
+  
+# Teams
+  
+  김재원 : 팀장, 서버 관리
+  채벼리 : 기획, Commiter, 데이터 베이스 관리
+  조민호 : 머신러닝
+
+# 개발환경
+
+  github, slack, (Notion) 사용 예정
+  github 중심의 pull request 방식으로 agile 개발한다는 내용이 포함되어야 합니다.
+  그리고, pull request history 는 점수산정의 한 요소가 됩니다.
+  
+  * 4~5개 항목으로 날자와 마일스톤 정리해 주세요.  하드웨어 작동테스트 라든지 등 항목.  demo day는 (잠정) 6월8일입니다 
