@@ -54,15 +54,15 @@
   
 ## Teams
 
-  <img src="./Member/Kim_Jaewon.JPG" width="300" >
+  <img src="./Member/Kim_Jaewon.png" width="235" >
 
   * 김재원 : 팀장, 서버
   
-  <img src="./Member/Che_Byeori.jpg" width="280" >
+  <img src="./Member/Che_Byeori.jpg" width="300" >
 
   * 채벼리 : 기획, Commiter, 데이터 베이스
   
-  <img src="./Member/Jo_Minho.png" width ="230">
+  <img src="./Member/Jo_Minho.png" width ="250">
 
   * 조민호 : 머신러닝
   
