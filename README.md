@@ -55,6 +55,7 @@
 ## Teams
 
   * 김재원 : 팀장, 서버
+  ![김재원](./Member/Kim_Jaewon.jpg)
   <img src="./Member/Kim_Jaewon.jpg" width="200">
 
   * 채벼리 : 기획, Commiter, 데이터 베이스
