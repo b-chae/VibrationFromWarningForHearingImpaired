@@ -1,6 +1,6 @@
 # 안전한 수면을 가능케하는, 농인을 위한 위험 알림 진동 서비스
 
-  안녕하세요, 저희는 조리김 팀입니다. ![조리김](./조리김.jpg)
+  안녕하세요, 저희는 조리김 팀입니다.
 
   그 어느 때보다 편안해야 하는 밤, 잠든 농인이 어떤 위기에 처할 수 있는지 생각해보셨나요?<br>
   저희는 그런 위기를 해소할 수 있도록 돕는 <b>'위기에서 나오는 바이브(Vibration)'</b>를 기획했습니다.
@@ -53,11 +53,11 @@
   **'위기에서 나오는 바이브(Vibration)'는 사회적 약자인 농인이 겪는, 보이지 않는 차별을 경감시킵니다.'**
   
 ## Teams
-   ![김재원](./Member/Kim_Jaewon.Jpg)
+   ![김재원](./Member/Kim_Jaewon.jpg){: width="100" height="100"}
   * 김재원 : 팀장, 서버
-   ![채벼리](./Member/Che_Byeori.jpg)
+   ![채벼리](./Member/Che_Byeori.jpg){: width="100" height="100"}
   * 채벼리 : 기획, Commiter, 데이터 베이스
-   ![조민호](./Member/Jo_Minho.png)
+   ![조민호](./Member/Jo_Minho.png){: width="100" height="100"}
   * 조민호 : 머신러닝
 
 
