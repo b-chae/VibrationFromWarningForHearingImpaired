@@ -62,7 +62,7 @@
 
   * 채벼리 : 기획, Commiter, 데이터 베이스
   
-  <img src="./Member/Jo_Minho.png" width ="205">
+  <img src="./Member/Jo_Minho.png" width ="190">
 
   * 조민호 : 머신러닝
   
