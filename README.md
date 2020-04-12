@@ -53,9 +53,11 @@
   **'위기에서 나오는 바이브(Vibration)'는 사회적 약자인 농인이 겪는, 보이지 않는 차별을 경감시킵니다.'**
   
 ## Teams
-  
+   ![김재원](./Member/Kim_Jaewon.Jpg)
   * 김재원 : 팀장, 서버
+   ![채벼리](./Member/Che_Byeori.jpg)
   * 채벼리 : 기획, Commiter, 데이터 베이스
+   ![조민호](./Member/Jo_Minho.png)
   * 조민호 : 머신러닝
 
 
