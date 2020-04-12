@@ -54,7 +54,7 @@
   
 ## Teams
 
-  <img src="./Member/Kim_Jaewon.png" width="235" >
+  <img src="./Member/Kim_Jaewon.png" width="245" >
 
   * 김재원 : 팀장, 서버
   
