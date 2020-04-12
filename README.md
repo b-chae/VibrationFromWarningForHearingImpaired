@@ -54,11 +54,11 @@
   
 ## Teams
 
-  <img src="./Member/Kim_Jaewon.JPG" width="200" >
+  <img src="./Member/Kim_Jaewon.JPG" width="300" >
 
   * 김재원 : 팀장, 서버
   
-  <img src="./Member/Che_Byeori.jpg" width="200" >
+  <img src="./Member/Che_Byeori.jpg" width="250" >
 
   * 채벼리 : 기획, Commiter, 데이터 베이스
   
