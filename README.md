@@ -54,12 +54,14 @@
   
 ## Teams
 
-  <img src="./Member/Kim_Jaewon.jpg" width="48">
   * 김재원 : 팀장, 서버
-  <img src="./Member/Che_Byeori.jpg" width="48">
+  <img src="./Member/Kim_Jaewon.jpg" width="100">
+
   * 채벼리 : 기획, Commiter, 데이터 베이스
-  <img src="./Member/Jo_Minho.png.jpg" width="48">
+  <img src="./Member/Che_Byeori.jpg" width="100">
+  
   * 조민호 : 머신러닝
+  <img src="./Member/Jo_Minho.png.png" width="100">
 
 
 ## 개발환경
