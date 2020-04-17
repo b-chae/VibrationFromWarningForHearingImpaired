@@ -8,7 +8,12 @@ import os
 current_dir = os.getcwd() + '/' # 현재 디렉토리 얻기 
 a_class = 'Baby cry, infant cry'
 b_class = 'Siren'
-
+#%%
+# 폴더 만들기
+if not os.path.exists(os.path.join(current_dir,'data',a_class,'audio')):
+    os.mkdir(os.path.join(current_dir,'data')) 
+    os.mkdir(os.path.join(current_dir,'data',a_class))
+    os.mkdir(os.path.join(current_dir,'data',a_class,'audio'))
 # %%
 ### 데이터 위에 주석 두줄 삭제해야 잘 됨 
 ### YTID에도 #없앧기
