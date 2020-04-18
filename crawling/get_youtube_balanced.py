@@ -12,8 +12,10 @@ b_class = 'Siren'
 
 #%%
 # 폴더 만들기
-if not os.path.exists(os.path.join(current_dir,'data',a_class,'audio')):
+if not os.path.exists(os.path.join(current_dir,'data')):
     os.mkdir(os.path.join(current_dir,'data')) 
+
+if not os.path.exists(os.path.join(current_dir,'data',a_class,'audio')):
     os.mkdir(os.path.join(current_dir,'data',a_class))
     os.mkdir(os.path.join(current_dir,'data',a_class,'audio'))
 

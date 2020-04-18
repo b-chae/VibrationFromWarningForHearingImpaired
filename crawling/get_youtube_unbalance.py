@@ -10,10 +10,12 @@ a_class = 'Baby cry, infant cry'
 b_class = 'Siren'
 #%%
 # 폴더 만들기
-if not os.path.exists(os.path.join(current_dir,'data',a_class,'audio')):
+if not os.path.exists(os.path.join(current_dir,'data')):
     os.mkdir(os.path.join(current_dir,'data')) 
-    os.mkdir(os.path.join(current_dir,'data',a_class))
-    os.mkdir(os.path.join(current_dir,'data',a_class,'audio'))
+
+if not os.path.exists(os.path.join(current_dir,'data',a_class,'unbalanced','audio')):
+    os.mkdir(os.path.join(current_dir,'data',a_class,'unbalanced'))
+    os.mkdir(os.path.join(current_dir,'data',a_class,'unbalanced','audio'))
 # %%
 ### 데이터 위에 주석 두줄 삭제해야 잘 됨 
 ### YTID에도 #없앧기
@@ -34,6 +36,7 @@ a_class_mid = class_df[class_df['display_name']==a_class]['mid']
 a_class_df = unbalanced_df[unbalanced_df["positive_labels"].str.find(a_class_mid.values[0])!=-1]
 
 #%%
+## Additional
 # 두개 다 겹치는경우 있느닞 확인
 b_class_mid = class_df[class_df['display_name']==b_class]['mid']
 print(len(unbalanced_df[(unbalanced_df["positive_labels"].str.find(a_class_mid.values[0])!=-1)&(unbalanced_df["positive_labels"].str.find(b_class_mid.values[0])!=-1)]))
@@ -47,7 +50,7 @@ from pytube import YouTube
 import subprocess
 import os
 ## iter_rows 해줘야 함
-from_check = True
+from_check = True # True면 처음부터, False면 원하는 url부터
 start_idx = 0
 error_list = []
 for index, sr in a_class_df.iterrows():    
