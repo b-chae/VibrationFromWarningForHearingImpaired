@@ -1,0 +1,11 @@
+{
+  "name": "vibrate",
+  "version": "1.0.0",
+  "description": "For Hearing Imparired, We try to make the Warning vibrator",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "KimJaewon ChaeByeoRi JoMinHo",
+  "license": "ISC"
+}
