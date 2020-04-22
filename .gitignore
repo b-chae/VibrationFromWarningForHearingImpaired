@@ -1,3 +1,5 @@
 *train_segments.csv
 data/
 .DS_Store
+package-lock.json
+node_modules/
