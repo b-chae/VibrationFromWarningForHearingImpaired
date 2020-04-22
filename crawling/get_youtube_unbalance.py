@@ -6,12 +6,16 @@
 # YTID 있는 부분도 # 삭제
 import os 
 current_dir = os.getcwd() + '/' # 현재 디렉토리 얻기 
-a_class = 'Baby cry, infant cry'
-b_class = 'Siren'
+a_class = 'Siren'
+b_class = 'Baby cry, infant cry'
+
 #%%
 # 폴더 만들기
 if not os.path.exists(os.path.join(current_dir,'data')):
-    os.mkdir(os.path.join(current_dir,'data')) 
+    os.mkdir(os.path.join(current_dir,'data'))
+
+if not os.path.exists(os.path.join(current_dir,'data',a_class)):
+    os.mkdir(os.path.join(current_dir,'data',a_class))
 
 if not os.path.exists(os.path.join(current_dir,'data',a_class,'unbalanced','audio')):
     os.mkdir(os.path.join(current_dir,'data',a_class,'unbalanced'))
@@ -84,3 +88,6 @@ for index, sr in a_class_df.iterrows():
         error_list.append(index)
     # ffmpeg -ss 10 -i kk.mp4 -t 30 a.mp3
 
+
+
+# %%

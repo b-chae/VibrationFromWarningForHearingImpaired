@@ -15,6 +15,9 @@ b_class = 'Siren'
 if not os.path.exists(os.path.join(current_dir,'data')):
     os.mkdir(os.path.join(current_dir,'data')) 
 
+if not os.path.exists(os.path.join(current_dir,'data',a_class)):
+    os.mkdir(os.path.join(current_dir,'data',a_class))
+
 if not os.path.exists(os.path.join(current_dir,'data',a_class,'audio')):
     os.mkdir(os.path.join(current_dir,'data',a_class))
     os.mkdir(os.path.join(current_dir,'data',a_class,'audio'))
