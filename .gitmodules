@@ -1,0 +1,3 @@
+[submodule "ML/Keras-Project-Template"]
+	path = ML/Keras-Project-Template
+	url = https://github.com/dizwe/VibrationFromWarningForHearingImpaired_ML.git
