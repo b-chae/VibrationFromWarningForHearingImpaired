@@ -1,9 +1,10 @@
 import express from "express";
 import body_parser from "body-parser";
-import signalRouter from "./signal";
+import signalRouter from "./signalRoutes";
 
 const app = express();
 
+// ? 필요할까?
 app.use(body_parser.urlencoded({ extended: true }));
 app.use(body_parser.json());
 
