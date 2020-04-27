@@ -81,3 +81,11 @@
   * 5월 1~4주차 : 서버 구축 및 연동, 키트 설계, 머신러닝을 위한 데이터베이스 시스템 구축과 학습 모델 생성, 정확도 향상을 위한 알고리즘 조정
   * 5월 5주차 ~ 6월 1주차 : 하드웨어 작동테스트, 최종 시뮬레이션을 통한 성능 확인 및 오류 수정, 제작 발표 준비 및 보고서 작성
   * 6월 8일 : Demo day
+
+## FlowChart
+
+ <img src="./Member/FlowChart.JPG" width="400">
+
+## Mascort
+
+ <img src="./Member/mascort.JPG" width="300">
