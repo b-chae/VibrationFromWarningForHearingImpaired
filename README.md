@@ -84,7 +84,7 @@
 
 ## FlowChart
 
- <img src="./Member/FlowChart.JPG" width="600">
+ <img src="./Member/FlowChart.JPG" width="800">
 
 ## Mascort
 
