@@ -60,7 +60,7 @@
   
   <img src="./Member/Che_Byeori.jpg" width="300" >
 
-  * 채벼리 : 기획, Commiter, Aduino
+  * 채벼리 : 기획, Commiter, Arduino
   
   <img src="./Member/Jo_Minho.png" width ="250">
 
@@ -84,8 +84,9 @@
 
 ## FlowChart
 
- <img src="./Member/flowchart.png" width="696">
-
+ <img src="./Member/flowchart.png" width="668">
+  Icons made by Pixel perfect, Eucalyp, Samshicons, Payungkead from www.flaticon.com 
+ 
 ## Mascort
 
  <img src="./Member/mascort.JPG" width="300">
