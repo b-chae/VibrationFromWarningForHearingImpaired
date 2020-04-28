@@ -64,7 +64,7 @@
   
   <img src="./Member/Jo_Minho.png" width ="250">
 
-  * 조민호 : Machine Learning
+  * 조민호 : Machine Learning Modeling
   
 
 
