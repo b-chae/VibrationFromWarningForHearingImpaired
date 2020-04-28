@@ -56,7 +56,7 @@
 
   <img src="./Member/Kim_Jaewon.png" width="245" >
 
-  * 김재원 : 팀장, Server, DB
+  * 김재원 : 팀장, Server, DataBase
   
   <img src="./Member/Che_Byeori.jpg" width="300" >
 
@@ -64,7 +64,7 @@
   
   <img src="./Member/Jo_Minho.png" width ="250">
 
-  * 조민호 : Machine Learning
+  * 조민호 : Machine Learning Modeling
   
 
 
