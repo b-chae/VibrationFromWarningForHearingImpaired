@@ -1,6 +1,4 @@
-*train_segments.csv
-data/
-.DS_Store
+# ########### JAEWON gitignore
 node_modules/
 
 # Logs
@@ -114,3 +112,10 @@ dist
 package-lock.json
 uploads
 static
+
+# ############ MINHO gitignore
+*train_segments.csv
+data/
+.DS_Store
+*.mp4
+*.mp3
