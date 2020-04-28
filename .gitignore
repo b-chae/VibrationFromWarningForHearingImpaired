@@ -1,3 +1,5 @@
 *train_segments.csv
 data/
 .DS_Store
+*.mp4
+*.mp3
