@@ -60,7 +60,7 @@
   
   <img src="./Member/Che_Byeori.jpg" width="300" >
 
-  * 채벼리 : 기획, Commiter, Aduino
+  * 채벼리 : 기획, Commiter, Arduino
   
   <img src="./Member/Jo_Minho.png" width ="250">
 
