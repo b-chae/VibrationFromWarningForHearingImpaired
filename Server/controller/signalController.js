@@ -15,7 +15,7 @@ export const soundPost = (req, res) => {
     var ID = req.query.ID;
     var PW = req.query.PW;
     if (ID === process.env.ID && PW === process.env.PASSWORD) {
-        var 
+        return;
     }
 }
 
@@ -28,7 +28,4 @@ export const vibeLedGet = (req, res) => {
         vibrate();
         led(color);
     }
-
-    
-    
 }
