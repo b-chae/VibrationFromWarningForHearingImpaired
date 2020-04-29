@@ -1,6 +1,11 @@
 import dotenv from 'dotenv';
+import multer from 'multer';
+import path from 'path';
 
 dotenv.config();
+
+export const upload = multer({ dest: path.resolve(__dirname, 'uploads/')});
+
 
 function vibrate() {
     console.log('vibrate');
@@ -12,11 +17,14 @@ function led(color) {
 
 
 export const soundPost = (req, res) => {
+    console.log(req.file);
+    res.sendStatus(200);
+    /*
     var ID = req.query.ID;
     var PW = req.query.PW;
     if (ID === process.env.ID && PW === process.env.PASSWORD) {
-        var 
-    }
+        return;
+    }*/
 }
 
 export const vibeLedGet = (req, res) => {
@@ -28,7 +36,4 @@ export const vibeLedGet = (req, res) => {
         vibrate();
         led(color);
     }
-
-    
-    
 }
