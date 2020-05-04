@@ -97,6 +97,8 @@
 
 ### Arduino
 * Arduino Sketcher
+* MAX9814모듈과 ESP32 모듈 연결
+* 매 10초마다 모듈을 통해 아날로그 신호를 입력받아(8000Hz) WAV파일로 SPIFFS영역에 저장
 
 ### Server
 * TDD 개발론
