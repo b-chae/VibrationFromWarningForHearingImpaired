@@ -101,6 +101,7 @@
 * 매 10초마다 모듈을 통해 아날로그 신호를 입력받아(8000Hz) WAV파일로 SPIFFS영역에 저장
 
 ### Server
-* TDD 개발론
-* Nodejs, Express
+* TDD 개발 방법 채택
+* Nodejs, Express를 이용해서 서버를 구성한다. 서버는 음성 센서로부터 multi-form POST를 받아서 ML 모델에 넘겨준다. ML 모델에서 이 음성 자료가 아기 울음소리나 사이렌 소리인지 일상 소음인지 판별해서 서버로 돌려주고 서버는 그 결과값을 response에 실어서 아두이노로 return 한다. 그와 동시에 Dtabase에 음성 데이터를 넣는 작업을 진행한다. Database는 Mongodb를 이용하고, Schema는 음성 데이터와 시간으로 이루어져 있다. 신호를 받은 진동모듈과 LED는 신호값에 따라 동작한다. 
+* 서버에서 node-python module을 이용해서 ML 모델을 가동시키는 방법과 flask를 이용해서 ML 모델을 가동시키는 방법이 있다. 우선 전자를 시도해서 결과를 본 후 후자를 시도한다. 
 
