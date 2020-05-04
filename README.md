@@ -89,3 +89,16 @@
 ## Mascort
 
  <img src="./Member/mascort.JPG" width="300">
+ 
+## 기술 섹션
+
+### ML
+
+
+### Arduino
+* Arduino Sketcher
+
+### Server
+* TDD 개발론
+* Nodejs, Express
+
