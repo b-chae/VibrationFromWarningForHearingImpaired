@@ -60,6 +60,14 @@ export const soundPost = async (req, res) => {
         vibrate: listed[2].vibrate
     });
 }
+const task = []
+// export const vibeLedGet = (req, res) => {
+//     console.log("VIBELGET");
+//     // const pythonProcess = spawn.spawn('python', ["C:/Users/KimJaeWon/Desktop/Project/VibrationFromWarningForHearingImpaired/ML/Keras-Project-Template/main.py"]);
+    
+//     var dataToSend;
+    
+    
 
 export const vibeLedGet = (req, res) => {
     console.log("VIBELGET");
