@@ -46,7 +46,6 @@ export const middleUpload = (req, res, next) => {
 
 export const soundPost = async (req, res) => {
     var dataToSend = "";
-
     await fs.writeFile(config.fileName, req.rawBody, (err) => {
         if (err) return console.log(err);
     });

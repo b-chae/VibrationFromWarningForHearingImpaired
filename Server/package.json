@@ -5,8 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev:test": "./node_modules/.bin/mocha -t 3000 --require @babel/register",
-    "dev:server": "nodemon --exec babel-node ./src/init.js",
-    "postInstall": "pip install comet_ml"
+    "dev:server": "nodemon --exec babel-node ./src/init.js"
   },
   "author": "KimJaewon ChaeByeoRi JoMinHo",
   "license": "ISC",
