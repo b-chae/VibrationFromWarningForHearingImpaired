@@ -3,20 +3,13 @@ import dotenv from 'dotenv';
 // import path from 'path';
 import spawn from 'child_process';
 import fs from 'fs';
-import async from 'async';
+import config from '../config.json'
 
 dotenv.config();
 
-// export const upload = multer({
-//     dest: path.resolve(__dirname, 'uploads/')
-// });
-var index = 0;
-const fileName = 'myfile.wav';
-const pythonPath = "C:/Users/KimJaeWon/Desktop/Project/VibrationFromWarningForHearingImpaired/pyt.py"
-
 function _python() {
     return new Promise((resolve, object) => {
-        const pythonProcess = spawn.spawn('python', [pythonPath, fileName]);
+        const pythonProcess = spawn.spawn('python', [config.pythonPath, config.fileName]);
         var dataToSend;
     
         pythonProcess.stdout.on('data', (data) => {
@@ -54,36 +47,35 @@ export const middleUpload = (req, res, next) => {
 export const soundPost = async (req, res) => {
     var dataToSend = "";
 
-    await fs.writeFile(fileName, req.rawBody, (err) => {
+    await fs.writeFile(config.fileName, req.rawBody, (err) => {
         if (err) return console.log(err);
     });
-    
+
     dataToSend = await _python();
     var listed = [];
     listed = dataToSend.split('\r\n');
-    
-    console.log(listed);
-    console.log(typeof (dataToSend));
+
     console.log("dataToSend : ", listed);
     res.send({
-        listed
+        color: listed[1].color,
+        vibrate: listed[2].vibrate
     });
 }
-const task = []
-// export const vibeLedGet = (req, res) => {
-//     console.log("VIBELGET");
-//     // const pythonProcess = spawn.spawn('python', ["C:/Users/KimJaeWon/Desktop/Project/VibrationFromWarningForHearingImpaired/ML/Keras-Project-Template/main.py"]);
+
+export const vibeLedGet = (req, res) => {
+    console.log("VIBELGET");
+    return res.sendStatus(200);
+    // const pythonProcess = spawn.spawn('python', ["C:/Users/KimJaeWon/Desktop/Project/VibrationFromWarningForHearingImpaired/ML/Keras-Project-Template/main.py"]);
     
-//     var dataToSend;
     
     
 
-//     // var ID = req.query.ID;
-//     // var PW = req.query.PW;
-//     // if (ID === process.env.ID && PW === process.env.PASSWORD) {
-//     //     var color = req.query.color;
+    // var ID = req.query.ID;
+    // var PW = req.query.PW;
+    // if (ID === process.env.ID && PW === process.env.PASSWORD) {
+    //     var color = req.query.color;
 
-//     //     vibrate();
-//     //     led(color);
-//     // }
-// }
+    //     vibrate();
+    //     led(color);
+    // }
+}

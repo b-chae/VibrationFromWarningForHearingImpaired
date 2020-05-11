@@ -3,7 +3,7 @@ import { soundPost, vibeLedGet, upload, middleUpload } from '../controller/signa
 
 const signalRouter = express.Router();
 
-// signalRouter.get('/', vibeLedGet);
+signalRouter.get('/', vibeLedGet);
 signalRouter.post('/', middleUpload , soundPost);
 // signalRouter.post('/', soundPost);
 // signalRouter.post('/', ,soundPost);
