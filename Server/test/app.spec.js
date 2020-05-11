@@ -15,9 +15,9 @@ describe('MP3 form-data POST /', function () {
     it('should return 200 status code ', function (done) {
         request(app)
             .post('/')
-            .field("Content-Type", "multipart/form-data")
-            .field("name", "Vibration")
-            .attach('mp3', './res/Test.mp3')
+            // .field("Content-Type", "multipart/form-data")
+            // .field("name", "Vibration")
+             .attach('mm', './res/Test.mp3')
             .expect(200)
             .end((err, res) => {
                 if (err) throw err;
