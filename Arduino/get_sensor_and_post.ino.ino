@@ -1,11 +1,8 @@
 #include <WiFi.h>
-#include <WiFiClient.h>
+#include <HTTPClient.h>
 
-const char* ssid = "bchae";
+const char* ssid = "iptime";
 const char* password = "/*PASSWORD*/";
-
-const uint16_t port = 4000;
-const char * host = "172.20.10.6"; // ip or dns
 
 #include "FS.h"
 #include "SPIFFS.h"
@@ -17,7 +14,7 @@ const char * host = "172.20.10.6"; // ip or dns
 #define G_PIN 27
 #define B_PIN 26
 
-WiFiClient client;
+HTTPClient http;
 
 int flag = 0;
 const int headerSize = 44;
@@ -54,24 +51,17 @@ void record_process()
       mode = 0;
       Serial.println("SAVING COMPLETED");
 
-	if(client.connected()){
-	
-	String response = "";
-	int response_flag = 0;
 	File file = SPIFFS.open("/sound1.wav");
-	client.print("POST / HTTP/1.1\r\nContent-Type: audio/wav\r\nContent-Length : ");
-	client.print(file.size());
-	client.print("\r\n\r\n");
-	client.write(file);
-	client.print("\r\n");
-	while(client.available()){
-		char c = client.read();
-		Serial.print(c);
-	}
-	
+	http.addHeader("Content-Type", "audio/wav");
+	int httpResponseCode = http.sendRequest("POST", &file, file.size());
+	if(httpResponseCode > 0){
+	  String response = http.getString();
+	  Serial.println(httpResponseCode);
+	  Serial.println(response);
 	}
 	else{
-		Serial.println("not connected");
+		Serial.println("Error");
+		Serial.println(httpResponseCode);
 	}
   }
 }
@@ -96,6 +86,12 @@ void LED_RED(){
 	digitalWrite(B_PIN, 255);
 }
 
+void LEG_BLUE(){
+	digitalWrite(R_PIN, 255);
+	digitalWrite(G_PIN, 255);
+	digitalWrite(B_PIN, 0);
+}
+
 void LED_OFF(){
 	digitalWrite(R_PIN, 255);
 	digitalWrite(G_PIN, 255);
@@ -112,7 +108,6 @@ void setup()
 	LED_RED();
 	
   Serial.begin(115200);
-  /*현재 저장된 파일 출력 */
   SPIFFS.begin();
   {
     File root = SPIFFS.open("/");
@@ -146,15 +141,12 @@ void setup()
     delay(500);
     Serial.print(".");
   }
-
-   if (!client.connect(host, port)) {
-        Serial.println("Connection failed.");
-   }
   
   Serial.println("");
   Serial.print("Connected! IP address: ");
   Serial.println(WiFi.localIP());
-
+ 
+  http.begin("http://ec2-3-87-72-38.compute-1.amazonaws.com:8085/");
 }
 
 bool exists(String path) {
