@@ -9,9 +9,8 @@ dotenv.config();
 
 function _python() {
     return new Promise((resolve, object) => {
-        const pythonProcess = spawn.spawn('python', [config.pythonPath, config.fileName]);
+        const pythonProcess = spawn.spawn('python3', [config.pythonPath, '--config=../ML/Keras-Project-Template/configs/wav_classify_config.json']);
         var dataToSend;
-    
         pythonProcess.stdout.on('data', (data) => {
             console.log(data.toString());
             dataToSend = data.toString();

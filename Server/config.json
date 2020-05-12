@@ -1,4 +1,4 @@
 {
-    "fileName" : "myfile.wav",
-    "pythonPath" : "C:/Users/KimJaeWon/Desktop/Project/VibrationFromWarningForHearingImpaired/pyt.py"
+    "fileName" : "../ML/Keras-Project-Template/predictors/home.wav",
+    "pythonPath" : "../ML/Keras-Project-Template/from_config_predict.py"
 }
