@@ -1,13 +1,13 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 
-const char* ssid = "iptime";
-const char* password = "/*PASSWORD*/";
+const char* ssid = "mugadang_2G";
+const char* password = "mugadang123";
 
 #include "FS.h"
 #include "SPIFFS.h"
 
-#define RECORDING_TIME 5 // 녹음 시간
+#define RECORDING_TIME 3 // 녹음 시간
 #define RECORDING_DATA_SIZE RECORDING_TIME * 8000 // 8000 = 1초간 레코딩 데이타
 #define VIB_PIN 32
 #define R_PIN 14
@@ -58,10 +58,24 @@ void record_process()
 	  String response = http.getString();
 	  Serial.println(httpResponseCode);
 	  Serial.println(response);
+	  if(httpResponseCode == 203){
+			vib_mode = 0;
+			rgb_mode = 0;
+	  }
+	  else if(httpResponseCode == 202){
+		  vib_mode = 1;
+		  rgb_mode = 1;
+	  }
+	  else if(httpResponseCode == 201){
+		  vib_mode = 1;
+		  rgb_mode = 2;
+	  }
 	}
 	else{
+		String response = http.getString();
 		Serial.println("Error");
 		Serial.println(httpResponseCode);
+		Serial.println(response);
 	}
   }
 }
@@ -93,6 +107,10 @@ void LEG_BLUE(){
 }
 
 void LED_OFF(){
+	digitalWrite(R_PIN, 0);
+	digitalWrite(G_PIN, 0);
+	digitalWrite(G_PIN, 0);
+	
 	digitalWrite(R_PIN, 255);
 	digitalWrite(G_PIN, 255);
 	digitalWrite(G_PIN, 255);
@@ -104,8 +122,6 @@ void setup()
 	pinMode(R_PIN, OUTPUT);
 	pinMode(G_PIN, OUTPUT);
 	pinMode(B_PIN, OUTPUT);
-	
-	LED_RED();
 	
   Serial.begin(115200);
   SPIFFS.begin();
@@ -146,7 +162,7 @@ void setup()
   Serial.print("Connected! IP address: ");
   Serial.println(WiFi.localIP());
  
-  http.begin("http://ec2-3-87-72-38.compute-1.amazonaws.com:8085/");
+  http.begin("http://34.71.119.170:4000/");
 }
 
 bool exists(String path) {
@@ -160,16 +176,25 @@ bool exists(String path) {
 }
 
 void loop()
-{
+{	
+  if ( mode == 0 )
+  {
 	if(vib_mode == 1){
 		digitalWrite(VIB_PIN, 255);
 	}
 	else{
 		digitalWrite(VIB_PIN, 0);
 	}
-	
-  if ( mode == 0 )
-  {
+	if(rgb_mode == 0){
+		LED_OFF();
+	}
+	else if(rgb_mode == 1){
+		LED_RED();
+	}
+	else{
+		LEG_BLUE();
+	}
+	  delayMicroseconds(3000000); //3초 딜레이
 	  Serial.println("RECORD 1");
 	  Serial.println("WRITING START");
 	  mode = 1;
