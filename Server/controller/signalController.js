@@ -58,6 +58,16 @@ export const soundPost = async (req, res) => {
     console.log("dataToSend : ", listed);
     const color = (listed[9] === 'baby cry' ? 'B' : (listed[9] === 'siren'?'R':'NULL'));
     const vibrate = (color == 'NULL' ? 'OFF' : 'ON');
+
+    /* user_define_code는 보통 1000번대로 세팅을 합니다.
+    공식 http code와 일치하지 않는 번호를 선택해기 위해서예요.
+    그리고, 장난이라도 코드에는 비속어를 써두지 않는게 좋습니다.
+    나도 모르게 남아서 나중에 귀찮아지는 경우가 발생해요.
+    
+    그리고 string으로 메시지를 보내야 한다면
+    _BLUE_ , _RED_ 등의 네이밍 규칙을 정해서 쓰면 좋아요.
+    가독성을 높이거든요. */
+
     if(vibrate === 'OFF') return res.status(203).send("fuck");
 	else if(color === 'B') return res.status(201).send("201ddd");
 	else if(color === 'R') return res.status(202).send("202ddd");
