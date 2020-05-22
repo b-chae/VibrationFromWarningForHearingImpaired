@@ -25,6 +25,7 @@ function _python() {
 }
 
 export const middleUpload = (req, res, next) => {
+	console.log(new Date());
     console.log("middleUpload");
     try {
         var data = new Buffer('');
@@ -39,25 +40,35 @@ export const middleUpload = (req, res, next) => {
         })
     } catch (error) {
         console.err(error);
-        return res.setStatus(400);
+        return res.sendStatus(400);
     }
 }
 
 export const soundPost = async (req, res) => {
     var dataToSend = "";
+	console.log("before fs.writeFile");
     await fs.writeFile(config.fileName, req.rawBody, (err) => {
         if (err) return console.log(err);
     });
-
+  console.log("after fs.writeFile");
     dataToSend = await _python();
+	console.log("after await _python");
     var listed = [];
-    listed = dataToSend.split('\r\n');
-
+    listed = dataToSend.split('\n');
     console.log("dataToSend : ", listed);
-    res.send({
-        color: listed[1].color,
-        vibrate: listed[2].vibrate
-    });
+    const color = (listed[9] === 'baby cry' ? 'B' : (listed[9] === 'siren'?'R':'NULL'));
+    const vibrate = (color == 'NULL' ? 'OFF' : 'ON');
+    if(vibrate === 'OFF') return res.status(203).send("fuck");
+	else if(color === 'B') return res.status(201).send("201ddd");
+	else if(color === 'R') return res.status(202).send("202ddd");
+	else {
+		console.log("else");
+		return res.status(500).send("220002");
+	}
+   /* res.send({
+        color: color,
+        vibrate: vibrate
+    });*/
 }
 const task = []
 // export const vibeLedGet = (req, res) => {
