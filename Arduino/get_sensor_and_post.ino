@@ -1,34 +1,4 @@
-#include <WiFi.h>
-#include <HTTPClient.h>
-
-const char* ssid = "mugadang_2G";
-const char* password = "mugadang123";
-
-#include "FS.h"
-#include "SPIFFS.h"
-
-#define RECORDING_TIME 3 // 녹음 시간
-#define RECORDING_DATA_SIZE RECORDING_TIME * 8000 // 8000 = 1초간 레코딩 데이타
-#define VIB_PIN 32
-#define R_PIN 14
-#define G_PIN 27
-#define B_PIN 26
-
-HTTPClient http;
-
-int flag = 0;
-const int headerSize = 44;
-char filename[20] = "/sound1.wav";
-int mode = 0; // 0  재생 모드 , 1 : 녹음 모드
-byte header[headerSize];
-int write_data_count = 0;
-File file;
-unsigned long start_millis;
-uint8_t *buffer;
-int vib_mode = 0;
-int rgb_mode = 0;
-
-void CreateWavHeader(byte* header, int waveDataSize);
+#include "header.h"
 
 void record_process()
 {
@@ -53,6 +23,7 @@ void record_process()
 
 	File file = SPIFFS.open("/sound1.wav");
 	http.addHeader("Content-Type", "audio/wav");
+	http.setTimeout(10000); //timeout 10초
 	int httpResponseCode = http.sendRequest("POST", &file, file.size());
 	if(httpResponseCode > 0){
 	  String response = http.getString();
@@ -61,21 +32,32 @@ void record_process()
 	  if(httpResponseCode == 203){
 			vib_mode = 0;
 			rgb_mode = 0;
+			pre_sound_code = 0;
 	  }
 	  else if(httpResponseCode == 202){
-		  vib_mode = 1;
-		  rgb_mode = 1;
+		  if(pre_sound_code == 202){
+			  vib_mode = 1;
+			  rgb_mode = 1;
+		  }
+		  else{
+			  pre_sound_code = 202;
+		  }
 	  }
 	  else if(httpResponseCode == 201){
-		  vib_mode = 1;
-		  rgb_mode = 2;
+		  if(pre_sound_code == 201){
+			vib_mode = 1;
+			rgb_mode = 2;
+		  }
+		  else{
+			  pre_sound_code = 201;
+		  }
 	  }
 	}
-	else{
-		String response = http.getString();
+	else{ //Error
 		Serial.println("Error");
 		Serial.println(httpResponseCode);
-		Serial.println(response);
+		vib_mode = 0;
+		rgb_mode = 0;
 	}
   }
 }
@@ -195,9 +177,8 @@ void loop()
 		LEG_BLUE();
 	}
 	  delayMicroseconds(3000000); //3초 딜레이
-	  Serial.println("RECORD 1");
-	  Serial.println("WRITING START");
-	  mode = 1;
+	  Serial.println("LISTENING");
+	  mode = 2;
 	  write_data_count = 0;
 	  start_millis = millis();
   }
@@ -206,6 +187,15 @@ void loop()
     record_process();
     delayMicroseconds(1000000 / 9000);
 	//1000000/8000으로 했을 경우 소리가 조금 빠르게 감기는 경향이 있다. 딜레이를 감안해서 1000000/9000으로 했다!
+  }
+  if(mode == 2){
+	uint16_t val = analogRead(33);
+	val = val >> 4;
+	if(val > 100) {
+		mode = 1;
+		Serial.println(val);
+		Serial.println("SOUND DETECTED, START RECORDING");
+	}
   }
 }
 
