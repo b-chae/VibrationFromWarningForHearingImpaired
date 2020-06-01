@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import spawn from 'child_process';
 import fs from 'fs';
 import config from '../config.json'
+import axios from 'axios'
 
 dotenv.config();
 
@@ -46,16 +47,20 @@ export const middleUpload = (req, res, next) => {
 
 export const soundPost = async (req, res) => {
     var dataToSend = "";
-	console.log("before fs.writeFile");
     await fs.writeFile(config.fileName, req.rawBody, (err) => {
         if (err) return console.log(err);
     });
-  console.log("after fs.writeFile");
-    dataToSend = await _python();
-	console.log("after await _python");
-    var listed = [];
-    listed = dataToSend.split('\n');
-    console.log("dataToSend : ", listed);
+    const request = axios.get('http://localhost:5000/').then(response => {
+        console.log(response);
+        return response;
+    })
+
+    console.log("Request", request);
+    return res.sendStatus(200);
+    // dataToSend = await _python();
+    // var listed = [];
+    // listed = dataToSend.split('\n');
+    // console.log("dataToSend : ", listed);
     const color = (listed[9] === 'baby cry' ? 'B' : (listed[9] === 'siren'?'R':'NULL'));
     const vibrate = (color == 'NULL' ? 'OFF' : 'ON');
     if(vibrate === 'OFF') return res.status(203).send("fuck");
