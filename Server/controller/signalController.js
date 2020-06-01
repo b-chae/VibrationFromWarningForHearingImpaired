@@ -54,15 +54,12 @@ export const soundPost = async (req, res) => {
         console.log(response);
         return response;
     })
+    console.log("request", request);
 
-    console.log("Request", request);
-    return res.sendStatus(200);
-    // dataToSend = await _python();
-    // var listed = [];
-    // listed = dataToSend.split('\n');
-    // console.log("dataToSend : ", listed);
-    const color = (listed[9] === 'baby cry' ? 'B' : (listed[9] === 'siren'?'R':'NULL'));
-    const vibrate = (color == 'NULL' ? 'OFF' : 'ON');
+    const { predict, prob } = request;
+    console.log("predict", predict, "prob", prob);
+
+    const vibrate = ( color == 'NULL' ? 'OFF' : 'ON');
     if(vibrate === 'OFF') return res.status(203).send("fuck");
 	else if(color === 'B') return res.status(201).send("201ddd");
 	else if(color === 'R') return res.status(202).send("202ddd");
@@ -70,34 +67,10 @@ export const soundPost = async (req, res) => {
 		console.log("else");
 		return res.status(500).send("220002");
 	}
-   /* res.send({
-        color: color,
-        vibrate: vibrate
-    });*/
 }
-const task = []
-// export const vibeLedGet = (req, res) => {
-//     console.log("VIBELGET");
-//     // const pythonProcess = spawn.spawn('python', ["C:/Users/KimJaeWon/Desktop/Project/VibrationFromWarningForHearingImpaired/ML/Keras-Project-Template/main.py"]);
-    
-//     var dataToSend;
-    
-    
+   
 
 export const vibeLedGet = (req, res) => {
     console.log("VIBELGET");
     return res.sendStatus(200);
-    // const pythonProcess = spawn.spawn('python', ["C:/Users/KimJaeWon/Desktop/Project/VibrationFromWarningForHearingImpaired/ML/Keras-Project-Template/main.py"]);
-    
-    
-    
-
-    // var ID = req.query.ID;
-    // var PW = req.query.PW;
-    // if (ID === process.env.ID && PW === process.env.PASSWORD) {
-    //     var color = req.query.color;
-
-    //     vibrate();
-    //     led(color);
-    // }
 }
